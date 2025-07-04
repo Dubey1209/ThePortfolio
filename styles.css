@@ -293,8 +293,9 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   color: #555;
   font-size: 0.95rem;
 }
-.about-card:hover {
+.about-cards .about-card:hover {
   box-shadow: 0 8px 24px rgba(42,122,226,0.13);
+  background: #e3f0fc !important;
   transform: translateY(-6px) scale(1.03);
 }
 @media (max-width: 900px) {
@@ -711,7 +712,7 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   flex-wrap: wrap;
 }
 .project-card {
-  background: #fff;
+  background: var(--card-bg, #fff);
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(42,122,226,0.10);
   overflow: hidden;
@@ -1418,4 +1419,16 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   text-align: center;
   margin: 1.2rem 0 1.5rem 0;
   letter-spacing: -0.2px;
+}
+
+/* Generic hover effect for all project cards (fallback for cards beyond the third) */
+.project-card:hover {
+  box-shadow: 0 8px 32px rgba(42,122,226,0.14);
+  background: #f5faff;
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Ensure all project cards use the main blue color on hover for consistency */
+.projects-cards-row .project-card:hover {
+  background: #e3f0fc !important;
 } 
