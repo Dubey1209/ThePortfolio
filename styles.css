@@ -2024,3 +2024,95 @@ body.dark-theme .certifications-subtitle {
     height: 18px;
   }
 } 
+
+/* Responsive Navbar (Hamburger) */
+@media (max-width: 800px) {
+  .navbar-container {
+    flex-direction: row;
+    height: auto;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 4px 24px rgba(42,122,226,0.10);
+    z-index: 1001;
+    padding: 1.2rem 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #2a7ae2;
+    cursor: pointer;
+    margin-left: 1.2rem;
+    z-index: 1002;
+  }
+}
+@media (max-width: 600px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+/* Skills Tabs: Horizontal scroll on mobile */
+@media (max-width: 600px) {
+  .skills-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .skills-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .skills-tab {
+    min-width: 120px;
+    flex: 0 0 auto;
+  }
+}
+
+/* Project, Education, Contact, Footer: Stack and pad on mobile */
+@media (max-width: 700px) {
+  .projects-cards-row, .education-card, .contact-content-row, .footer-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.2rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .project-card, .education-card, .contact-form-card, .footer-col {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 auto 1.2rem auto !important;
+  }
+}
+
+/* General: Prevent overflow, fix font sizes */
+@media (max-width: 600px) {
+  body, .skills-title, .projects-title, .education-title, .contact-title {
+    font-size: 0.98rem !important;
+  }
+  .section {
+    padding: 2rem 0 1rem 0 !important;
+  }
+  .skills-chips-row, .about-cards {
+    gap: 0.5rem !important;
+  }
+  .about-title {
+    font-size: 1.3rem !important;
+  }
+} 

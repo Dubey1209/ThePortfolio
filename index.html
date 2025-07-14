@@ -13,6 +13,7 @@
       <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
         <span id="theme-toggle-icon">🌙</span>
       </button>
+      <button class="menu-toggle" aria-label="Open menu" style="display:none;">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -87,7 +88,7 @@
           <div class="project-desc">
             <ul>
               <li>Developed and deployed a website offering simple animation options, improving user engagement through interactive design</li>
-              <li>Tried simple gamification touch into the platform to boost user engagement and interaction</li>
+              <li>Gained hands-on experience by adding gamification elements to the platform to boost user engagement and interaction.</li>
             </ul>
           </div>
         </div>
@@ -261,6 +262,14 @@
     });
   });
   </script>
+  <script>
+// Hamburger menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+</script>
   <section id="certifications" class="section certifications-section">
     <div class="container">
       <h2 class="certifications-title">Certifications</h2>
