@@ -1899,3 +1899,148 @@ body.dark-theme .certifications-title {
 body.dark-theme .certifications-subtitle {
   color: #aaa;
 } 
+
+/* --- Responsive Navbar Hamburger --- */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: #2a7ae2;
+    z-index: 200;
+  }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 70vw;
+    max-width: 320px;
+    box-shadow: 0 8px 32px rgba(42,122,226,0.13);
+    padding: 1.5rem 1.2rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+    display: none;
+    transition: all 0.3s;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* --- Home Section Responsive --- */
+@media (max-width: 900px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+  }
+  .home-left, .home-right {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+  .home-photo {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+  }
+}
+@media (max-width: 600px) {
+  .home-container {
+    padding: 0.5rem 0;
+  }
+  .home-title, .home-subtitle {
+    font-size: 1.1rem;
+  }
+  .home-desc {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.5rem;
+  }
+}
+
+/* --- About Section Responsive --- */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .about-image img {
+    width: 90vw;
+    max-width: 320px;
+  }
+  .about-details {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
+/* --- Projects Section Responsive --- */
+@media (max-width: 900px) {
+  .projects-cards-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .project-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    font-size: 0.97rem;
+  }
+}
+@media (max-width: 600px) {
+  .projects-title, .projects-subtitle {
+    font-size: 1rem;
+  }
+  .project-card {
+    font-size: 0.92rem;
+    padding: 0.7rem 0.4rem;
+  }
+}
+
+/* --- Footer Responsive --- */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+  }
+  .footer-col {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* --- General Mobile Fixes --- */
+@media (max-width: 600px) {
+  .container {
+    width: 98%;
+    padding: 0 0.5rem;
+  }
+  .section {
+    padding: 2rem 0 1rem 0;
+  }
+  body {
+    font-size: 12px;
+    overflow-x: hidden;
+  }
+}
+
+/* --- Prevent horizontal scroll on all --- */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+} 
