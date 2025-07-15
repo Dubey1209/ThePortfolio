@@ -803,7 +803,7 @@ body.dark-theme .home-bg {
   flex: 1 1 320px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.22s, transform 0.22s, background 0.22s;
+  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s;
   cursor: pointer;
   position: relative;
   font-size: 0.97rem;
@@ -813,17 +813,20 @@ body.dark-theme .home-bg {
 .project-card:nth-child(1):hover {
   box-shadow: 0 8px 32px rgba(34,181,115,0.18);
   background: #e6ffe6;
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-8px) scale(1.025);
+  z-index: 2;
 }
 .project-card:nth-child(2):hover {
   box-shadow: 0 8px 32px rgba(162,89,255,0.18);
   background: #f8e6ff;
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-8px) scale(1.025);
+  z-index: 2;
 }
 .project-card:nth-child(3):hover {
   box-shadow: 0 8px 32px rgba(232,67,147,0.18);
   background: #ffe6f0;
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-8px) scale(1.025);
+  z-index: 2;
 }
 .project-img {
   background: var(--card-bg, #e3f0fc);
@@ -838,13 +841,15 @@ body.dark-theme .home-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
-  box-shadow: none;
-  transition: transform 0.3s ease;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 2px 16px rgba(42,122,226,0.10);
+  transition: box-shadow 0.3s;
 }
 
 .project-card:hover .project-img img {
-  transform: scale(1.05);
+  transform: scale(1.06) rotate(-1deg);
+  filter: brightness(1.08) saturate(1.1);
+  opacity: 0.96;
 }
 .project-meta {
   margin: 0.7rem 0 0.2rem 0;
@@ -1512,9 +1517,10 @@ body.dark-theme .home-bg {
 
 /* Generic hover effect for all project cards (fallback for cards beyond the third) */
 .project-card:hover {
-  box-shadow: 0 8px 32px rgba(42,122,226,0.14);
-  background: #f5faff;
-  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 36px 0 rgba(42,122,226,0.18), 0 0 24px 6px #a259ff33, 0 2px 8px 0 rgba(0,0,0,0.12);
+  background: linear-gradient(120deg, #f7fafd 60%, #e3f0fc 100%);
+  transform: translateY(-8px) scale(1.025);
+  z-index: 2;
 }
 
 /* Ensure all project cards use the main blue color on hover for consistency */
