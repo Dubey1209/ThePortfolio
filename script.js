@@ -24,4 +24,61 @@ function revealStorySegments() {
   });
 }
 window.addEventListener('scroll', revealStorySegments);
-window.addEventListener('DOMContentLoaded', revealStorySegments); 
+window.addEventListener('DOMContentLoaded', revealStorySegments);
+
+console.log('Transition script loaded');
+alert('Transition script loaded! If you see this, the transition code is running.');
+
+// Unique Section/Page Transition Effects
+(function() {
+  // Create overlay for page transitions
+  let overlay = document.createElement('div');
+  overlay.className = 'page-transition-overlay';
+  document.body.appendChild(overlay);
+
+  // Helper: get section from hash
+  function getSectionFromHash(hash) {
+    if (!hash) return null;
+    return document.querySelector(hash);
+  }
+
+  // Animate section transitions for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (!hash || hash === '#' || !document.querySelector(hash)) return;
+      const targetSection = document.querySelector(hash);
+      const currentSection = document.querySelector('.section:target') || document.querySelector('.section');
+      if (!targetSection || targetSection === currentSection) return;
+      e.preventDefault();
+      // Animate out current
+      if (currentSection) {
+        currentSection.classList.add('transitioning-out');
+        setTimeout(() => {
+          currentSection.classList.remove('transitioning-out');
+        }, 600);
+      }
+      // Animate in target
+      setTimeout(() => {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetSection.classList.add('transitioning-in');
+        setTimeout(() => {
+          targetSection.classList.remove('transitioning-in');
+        }, 800);
+      }, 200);
+    });
+  });
+
+  // Animate page transitions for .html links
+  document.querySelectorAll('a[href$=".html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href) return;
+      e.preventDefault();
+      overlay.classList.add('active');
+      setTimeout(() => {
+        window.location.href = href;
+      }, 600);
+    });
+  });
+})(); 

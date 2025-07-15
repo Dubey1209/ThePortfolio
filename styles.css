@@ -3531,3 +3531,32 @@ body.dark-theme .education-info-main {
 body.dark-theme .education-info-box .education-info-main {
   color: #fff !important;
 }
+
+/* Section/Page Transition Overlay */
+.page-transition-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, #2a7ae2 0%, #a259ff 100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1);
+}
+.page-transition-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Section fade/scale for smooth anchor navigation */
+.section.transitioning-out {
+  opacity: 0;
+  transform: scale(0.98) translateY(30px);
+  transition: opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1);
+  z-index: 1;
+}
+.section.transitioning-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  z-index: 2;
+}
