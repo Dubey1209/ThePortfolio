@@ -1050,9 +1050,12 @@ body.dark-theme .home-bg {
   color: #22b573;
 }
 .education-info-label {
-  color: #888;
-  font-size: 1.01rem;
-  margin-top: 0.2rem;
+  color: #2a7ae2;
+  font-weight: 500;
+  opacity: 0.95;
+}
+body.dark-theme .education-info-label {
+  color: #7bb6ff;
 }
 .education-coursework {
   margin-top: 0.5rem;
@@ -3507,4 +3510,24 @@ body.dark-theme .skill-static-card .skill-card-header {
 }
 body.dark-theme .skill-list li {
   color: #e3f0fc;
+}
+
+body.dark-theme .education-info-box {
+  background: #23293a !important;
+  color: #e3f0fc;
+  box-shadow: 0 2px 16px #2a7ae255, 0 1.5px 6px #a259ff33;
+  border: 1.5px solid #2a7ae2;
+}
+body.dark-theme .education-info-label,
+body.dark-theme .education-info-box.duration-box .education-info-label {
+  color: #e3f0fc !important;
+  opacity: 0.95;
+}
+
+body.dark-theme .education-info-main {
+  color: #fff !important;
+}
+
+body.dark-theme .education-info-box .education-info-main {
+  color: #fff !important;
 }
