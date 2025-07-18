@@ -25,8 +25,9 @@
       <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
         <span id="theme-toggle-icon">🌙</span>
       </button>
-      <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" style="display:none;">☰</button>
+      <button id="menuToggleOpen" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
       <ul class="nav-links" id="navLinks">
+        <li class="drawer-close-btn-li"><button id="menuToggleClose" class="menu-toggle drawer-close-btn" aria-label="Close menu" aria-expanded="false" aria-controls="navLinks">×</button></li>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -41,6 +42,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="drawer-overlay" id="drawerOverlay" tabindex="-1" aria-hidden="true"></div>
     </div>
   </nav>
   <main id="main-content" role="main">
@@ -521,5 +523,4 @@
   <script src="script.js"></script>
   <script src="theme-toggle.js"></script>
 </body>
-<a href="#contact" class="floating-contact-btn" aria-label="Get In Touch">✉️</a>
 </html> 

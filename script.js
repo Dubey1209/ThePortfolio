@@ -1,19 +1,22 @@
 // Responsive menu toggle
-const menuToggle = document.getElementById('menuToggle');
+const menuToggleOpen = document.getElementById('menuToggleOpen');
+const menuToggleClose = document.getElementById('menuToggleClose');
 const navLinks = document.getElementById('navLinks');
 
 // Hamburger menu toggle (robust, accessible)
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
+if (menuToggleOpen && navLinks) {
+  menuToggleOpen.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggleOpen.setAttribute('aria-expanded', isOpen);
+    if (menuToggleClose) menuToggleClose.setAttribute('aria-expanded', isOpen);
   });
   // Close menu when a nav link is clicked (on mobile)
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 800 && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggleOpen.setAttribute('aria-expanded', 'false');
+        if (menuToggleClose) menuToggleClose.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -90,4 +93,16 @@ window.addEventListener('DOMContentLoaded', revealStorySegments);
       }, 600);
     });
   });
-})(); 
+})();
+
+// Drawer overlay close for mobile nav
+const drawerOverlay = document.getElementById('drawerOverlay');
+if (drawerOverlay && navLinks && menuToggleOpen) {
+  drawerOverlay.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      menuToggleOpen.setAttribute('aria-expanded', 'false');
+      if (menuToggleClose) menuToggleClose.setAttribute('aria-expanded', 'false');
+    }
+  });
+} 

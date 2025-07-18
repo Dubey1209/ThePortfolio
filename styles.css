@@ -3758,3 +3758,199 @@ body.dark-theme .skill-static-card:hover, body.dark-theme .skill-static-card:hov
   filter: none !important;
   text-shadow: none !important;
 }
+
+@media (max-width: 800px) {
+  .nav-links.open {
+    background: #fff !important;
+  }
+  .nav-links.open li a {
+    color: #181c24 !important;
+  }
+  body.dark-theme .nav-links.open {
+    background: #23293a !important;
+  }
+  body.dark-theme .nav-links.open li a {
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 80vw;
+    max-width: 340px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -8px 0 32px #2a7ae233, 0 2px 16px #a259ff22;
+    border-radius: 18px 0 0 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 2rem 2rem 2rem;
+    gap: 1.5rem;
+    z-index: 2000;
+    transition: right 0.35s cubic-bezier(.4,0,.2,1), background 0.3s;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  .nav-links.open {
+    right: 0;
+    background: #fff !important;
+    box-shadow: -8px 0 32px #2a7ae233, 0 2px 16px #a259ff22;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #181c24 !important;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    transition: background 0.18s, color 0.18s;
+    letter-spacing: 0.2px;
+  }
+  .nav-links li a:hover, .nav-links li a:focus {
+    background: #e3f0fc;
+    color: #2a7ae2 !important;
+  }
+  .menu-toggle {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 2100;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #2a7ae233;
+    padding: 0.3rem 0.7rem;
+    transition: background 0.2s;
+  }
+  .menu-toggle:focus {
+    outline: 2px solid #2a7ae2;
+  }
+  body.dark-theme .nav-links,
+  body.dark-theme .nav-links.open {
+    background: #23293a !important;
+    box-shadow: -8px 0 32px #2a7ae255, 0 2px 16px #a259ff33;
+  }
+  body.dark-theme .nav-links li a {
+    color: #fff !important;
+  }
+  body.dark-theme .nav-links li a:hover, body.dark-theme .nav-links li a:focus {
+    background: #2a7ae2;
+    color: #fff !important;
+  }
+  body.dark-theme .menu-toggle {
+    background: #23293a;
+    color: #fff;
+    box-shadow: 0 2px 8px #2a7ae255;
+  }
+}
+
+@media (max-width: 800px) {
+  .drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(24,28,36,0.32);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-links.open ~ .drawer-overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+@media (max-width: 800px) {
+  .drawer-close-btn-li {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+  }
+  .drawer-close-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    background: #23293a;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #2a7ae255;
+    margin: 0 0 0.5rem 0;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    z-index: 2101;
+  }
+  .drawer-close-btn:hover, .drawer-close-btn:focus {
+    background: #2a7ae2;
+    color: #fff;
+    box-shadow: 0 4px 16px #2a7ae233;
+    outline: 2px solid #2a7ae2;
+  }
+}
+@media (min-width: 801px) {
+  .drawer-close-btn, .drawer-close-btn-li {
+    display: none !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: flex !important;
+  }
+  .drawer-close-btn-li {
+    display: none;
+  }
+  .nav-links.open .drawer-close-btn-li {
+    display: flex;
+  }
+}
+@media (min-width: 801px) {
+  .menu-toggle, .drawer-close-btn, .drawer-close-btn-li {
+    display: none !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #menuToggleOpen {
+    display: flex !important;
+  }
+  .nav-links.open ~ .drawer-overlay #menuToggleOpen {
+    display: none !important;
+  }
+  #menuToggleClose {
+    display: none;
+    font-size: 2.2rem;
+    font-weight: 900;
+    background: #23293a;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #2a7ae255;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0.5rem 0;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    z-index: 2101;
+  }
+  .nav-links.open .drawer-close-btn-li #menuToggleClose {
+    display: flex !important;
+  }
+}
+@media (min-width: 801px) {
+  #menuToggleOpen, #menuToggleClose, .drawer-close-btn, .drawer-close-btn-li {
+    display: none !important;
+  }
+}
