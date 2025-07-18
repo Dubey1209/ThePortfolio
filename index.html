@@ -4,16 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Manager Portfolio</title>
+  <meta name="description" content="Deepika Dubey's portfolio: Product Management, Software Engineering, Android, UI/UX, and more. Explore projects, skills, certifications, and story.">
+  <meta property="og:title" content="Deepika Dubey | Product Manager Portfolio">
+  <meta property="og:description" content="Explore Deepika Dubey's journey in product management, software engineering, and design. Projects, skills, certifications, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-portfolio-url.com/">
+  <meta property="og:image" content="profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deepika Dubey | Product Manager Portfolio">
+  <meta name="twitter:description" content="Explore Deepika Dubey's journey in product management, software engineering, and design. Projects, skills, certifications, and more.">
+  <meta name="twitter:image" content="profile.jpg">
+  <link rel="icon" type="image/jpeg" href="profile.jpg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
-      <div class="logo">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
+      <div class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
       <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
         <span id="theme-toggle-icon">🌙</span>
       </button>
-      <button class="menu-toggle" aria-label="Open menu" style="display:none;">☰</button>
+      <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" style="display:none;">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -31,6 +43,7 @@
       </ul>
     </div>
   </nav>
+  <main id="main-content" role="main">
   <section id="home" class="section home-section">
     <div class="home-bg"></div>
     <div class="container home-container">
@@ -49,7 +62,7 @@
         </div>
       </div>
       <div class="home-right">
-        <img src="profile.jpg" alt="Deepika Dubey" class="home-photo">
+        <img src="profile.jpg" alt="Deepika Dubey" class="home-photo" loading="lazy">
       </div>
     </div>
   </section>
@@ -59,7 +72,7 @@
       <p class="about-subtitle">Engineer by training & Product Thinker by passion</p>
       <div class="about-content">
         <div class="about-image">
-          <img src="students.jpg" alt="Student working at laptop" />
+          <img src="students.jpg" alt="Student working at laptop" loading="lazy" />
         </div>
         <div class="about-details">
           <h3 class="about-headline">Where Today's Code Meets Tomorrow's Vision</h3>
@@ -261,26 +274,11 @@
     </div>
   </section>
   <script>
-  // Skills tab switching
-  const tabs = document.querySelectorAll('.skills-tab');
-  const tabContents = document.querySelectorAll('.skills-tab-content');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      tabContents.forEach(tc => tc.classList.remove('active'));
-      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-    });
-  });
+  // All interactivity is now centralized in script.js
   </script>
   <script>
-// Hamburger menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.getElementById('navLinks');
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-</script>
+  // All interactivity is now centralized in script.js
+  </script>
   <section id="certifications" class="section certifications-section">
     <div class="container">
       <h2 class="certifications-title">Certifications</h2>
@@ -288,7 +286,7 @@ menuToggle.addEventListener('click', () => {
       <div class="certifications-cards-row">
         <div class="certification-card">
           <div class="certification-image">
-            <img src="PM_Certificate.png" alt="Product Management Certificate" class="cert-img">
+            <img src="PM_Certificate.png" alt="Product Management Certificate" class="cert-img" loading="lazy">
           </div>
           <div class="certification-content">
             <div class="certification-meta">
@@ -325,7 +323,7 @@ menuToggle.addEventListener('click', () => {
         </div>
         <div class="certification-card">
           <div class="certification-image">
-            <img src="SE_Certficate.png" alt="Software Engineering Certificate" class="cert-img">
+            <img src="SE_Certficate.png" alt="Software Engineering Certificate" class="cert-img" loading="lazy">
           </div>
           <div class="certification-content">
             <div class="certification-meta">

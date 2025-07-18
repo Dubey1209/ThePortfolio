@@ -2,14 +2,26 @@
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+// Hamburger menu toggle (robust, accessible)
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Close menu when a nav link is clicked (on mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 800 && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
 
 // Prevent form submission (demo only)
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  alert('Thank you for reaching out! (Demo only)');
 });
 
 // Fade-in on scroll for story-scroll-segment
@@ -25,9 +37,6 @@ function revealStorySegments() {
 }
 window.addEventListener('scroll', revealStorySegments);
 window.addEventListener('DOMContentLoaded', revealStorySegments);
-
-console.log('Transition script loaded');
-alert('Transition script loaded! If you see this, the transition code is running.');
 
 // Unique Section/Page Transition Effects
 (function() {

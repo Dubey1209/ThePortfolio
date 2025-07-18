@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
-      <div class="logo">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
+      <div class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
       <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
         <span id="theme-toggle-icon">🌙</span>
       </button>
@@ -34,7 +35,7 @@
     <div class="my-story-hero-bg"></div>
     <div class="container my-story-hero-content">
       <div class="my-story-hero-img-wrapper">
-        <img src="profile.jpg" alt="Deepika Dubey" class="my-story-hero-img" />
+        <img src="profile.jpg" alt="Deepika Dubey" class="my-story-hero-img" loading="lazy" />
       </div>
       <div class="my-story-hero-text">
         <h1 class="my-story-hero-title">💬 From a Curious Girl to an Engineer</h1>
@@ -42,7 +43,7 @@
       </div>
     </div>
   </section>
-  <main class="section my-story-scroll-section">
+  <main id="main-content" role="main">
     <div class="container my-story-scroll-container">
       <div class="my-story-scroll-card">
         <div class="my-story-chapter">
