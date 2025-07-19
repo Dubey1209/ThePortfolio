@@ -427,17 +427,19 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
 
 /* Home Section */
 .home-section {
-  background: transparent !important;
   position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 .home-bg {
-  z-index: 0 !important;
-  background-image: url('Background.jpg') !important;
-  opacity: 0.35 !important;
   display: block !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  background-image: url('Background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -457,12 +459,12 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   }
 }
 body.dark-theme .home-bg {
-  position: relative;
+  position: absolute !important;
+  z-index: -1 !important;
   background-image: linear-gradient(120deg, #2a7ae2, #a259ff, #ff6f91, #43e97b, #38f9d7, #2a7ae2);
   background-size: 300% 300%;
   animation: darkGradientBG 24s ease-in-out infinite;
   opacity: 1;
-  overflow: hidden;
 }
 body.dark-theme .home-bg::after {
   content: '';
@@ -496,11 +498,11 @@ body.dark-theme .home-bg {
   opacity: 0.6;
 }
 .home-container {
-  position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
   min-height: 400px;
   gap: 2.5rem;
 }
@@ -897,11 +899,9 @@ body.dark-theme .home-bg {
   flex: 1 1 320px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s, border 0.35s;
-  border: 2.5px solid transparent;
-  background-clip: padding-box;
+  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s;
+  cursor: pointer;
   position: relative;
-  z-index: 1;
   font-size: 0.97rem;
   padding: 1.1rem;
   box-sizing: border-box;
@@ -4323,28 +4323,55 @@ body.dark-theme .skill-static-card:hover, body.dark-theme .skill-static-card:hov
   text-align: center !important;
 }
 
-@keyframes projectCardFloat {
-  0% { transform: translateY(0) scale(1); box-shadow: 0 4px 24px rgba(42,122,226,0.10); }
-  50% { transform: translateY(-8px) scale(1.025); box-shadow: 0 12px 32px rgba(162,89,255,0.18), 0 2px 8px rgba(42,122,226,0.10); }
-  100% { transform: translateY(0) scale(1); box-shadow: 0 4px 24px rgba(42,122,226,0.10); }
-}
-.project-card::before {
-  display: none !important;
+@keyframes projectCardGlow {
+  0% {
+    border-image-source: linear-gradient(120deg, #2a7ae2, #a259ff, #43e97b, #2a7ae2);
+    box-shadow: 0 0 0 0 rgba(162,89,255,0.12), 0 2px 8px rgba(42,122,226,0.10);
+  }
+  50% {
+    border-image-source: linear-gradient(120deg, #ff6f91, #38f9d7, #a259ff, #2a7ae2);
+    box-shadow: 0 0 24px 6px rgba(162,89,255,0.18), 0 2px 16px rgba(42,122,226,0.13);
+  }
+  100% {
+    border-image-source: linear-gradient(120deg, #2a7ae2, #a259ff, #43e97b, #2a7ae2);
+    box-shadow: 0 0 0 0 rgba(162,89,255,0.12), 0 2px 8px rgba(42,122,226,0.10);
+  }
 }
 .project-card {
-  animation: projectCardFloat 6s ease-in-out infinite;
-  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s, border 0.35s;
-  border: 2.5px solid transparent;
-  background-clip: padding-box;
   position: relative;
   z-index: 1;
+  transition: box-shadow 0.4s, border 0.4s;
 }
-.project-card:hover {
-  box-shadow: 0 8px 32px 0 rgba(42,122,226,0.18), 0 2px 8px 0 rgba(162,89,255,0.10);
-  border-color: #2a7ae2;
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s;
+  border: 2.5px solid transparent;
+  border-image-slice: 1;
+  border-image-width: 2.5px;
+  border-image-source: linear-gradient(120deg, #2a7ae2, #a259ff, #43e97b, #2a7ae2);
 }
-body.dark-theme .project-card:hover {
-  border-color: #a259ff;
-  box-shadow: 0 8px 32px 0 rgba(162,89,255,0.18), 0 2px 8px 0 rgba(42,122,226,0.10);
+.project-card:hover::after, .project-card:focus-within::after {
+  opacity: 1;
+  animation: projectCardGlow 3.5s linear infinite;
+}
+
+.zoom-in {
+  animation: zoomInSection 0.5s cubic-bezier(.4,0,.2,1);
+}
+.zoom-out {
+  animation: zoomOutSection 0.4s cubic-bezier(.4,0,.2,1);
+}
+@keyframes zoomInSection {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes zoomOutSection {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.92); }
 }

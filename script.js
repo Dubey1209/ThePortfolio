@@ -105,4 +105,54 @@ if (drawerOverlay && navLinks && menuToggleOpen) {
       if (menuToggleClose) menuToggleClose.setAttribute('aria-expanded', 'false');
     }
   });
-} 
+}
+
+// Zoom in/out transition for section navigation
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Hide all sections except home on load
+  const sections = document.querySelectorAll('main > section');
+  sections.forEach(section => {
+    if (section.id !== 'home') {
+      section.style.display = 'none';
+    }
+  });
+
+  function showSection(targetId) {
+    const target = document.querySelector(targetId);
+    if (!target) return;
+    const current = Array.from(sections).find(sec => sec.style.display !== 'none');
+    if (current === target) return;
+    // Animate out current
+    if (current) {
+      current.classList.remove('zoom-in');
+      current.classList.add('zoom-out');
+      setTimeout(() => {
+        current.style.display = 'none';
+        current.classList.remove('zoom-out');
+        // Animate in target
+        target.style.display = '';
+        target.classList.add('zoom-in');
+        setTimeout(() => {
+          target.classList.remove('zoom-in');
+        }, 500);
+      }, 400);
+    } else {
+      target.style.display = '';
+      target.classList.add('zoom-in');
+      setTimeout(() => {
+        target.classList.remove('zoom-in');
+      }, 500);
+    }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1 && document.querySelector(targetId)) {
+        e.preventDefault();
+        showSection(targetId);
+      }
+    });
+  });
+}); 
