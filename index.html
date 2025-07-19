@@ -22,9 +22,6 @@
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
       <div class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
-        <span id="theme-toggle-icon">🌙</span>
-      </button>
       <button id="menuToggleOpen" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
       <ul class="nav-links" id="navLinks">
         <li class="drawer-close-btn-li"><button id="menuToggleClose" class="menu-toggle drawer-close-btn" aria-label="Close menu" aria-expanded="false" aria-controls="navLinks">×</button></li>
@@ -41,6 +38,7 @@
         </li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="drawer-theme-toggle-li"><button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn"><span class="theme-toggle-label">Theme</span> <span id="theme-toggle-icon">🌙</span></button></li>
       </ul>
       <div class="drawer-overlay" id="drawerOverlay" tabindex="-1" aria-hidden="true"></div>
     </div>
