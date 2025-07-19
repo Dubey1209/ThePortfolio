@@ -107,51 +107,56 @@ if (drawerOverlay && navLinks && menuToggleOpen) {
   });
 }
 
-// Zoom in/out transition for section navigation
+// Smooth scroll for anchor links
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Hide all sections except home on load
-  const sections = document.querySelectorAll('main > section');
-  sections.forEach(section => {
-    if (section.id !== 'home') {
-      section.style.display = 'none';
-    }
-  });
-
-  function showSection(targetId) {
-    const target = document.querySelector(targetId);
-    if (!target) return;
-    const current = Array.from(sections).find(sec => sec.style.display !== 'none');
-    if (current === target) return;
-    // Animate out current
-    if (current) {
-      current.classList.remove('zoom-in');
-      current.classList.add('zoom-out');
-      setTimeout(() => {
-        current.style.display = 'none';
-        current.classList.remove('zoom-out');
-        // Animate in target
-        target.style.display = '';
-        target.classList.add('zoom-in');
-        setTimeout(() => {
-          target.classList.remove('zoom-in');
-        }, 500);
-      }, 400);
-    } else {
-      target.style.display = '';
-      target.classList.add('zoom-in');
-      setTimeout(() => {
-        target.classList.remove('zoom-in');
-      }, 500);
-    }
-  }
-
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
       if (targetId.length > 1 && document.querySelector(targetId)) {
         e.preventDefault();
-        showSection(targetId);
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+
+// Fade in/out transition for section navigation
+
+document.addEventListener('DOMContentLoaded', function() {
+  const anchors = document.querySelectorAll('a[href^="#"]');
+  const sections = document.querySelectorAll('section');
+
+  anchors.forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1 && document.querySelector(targetId)) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        const currentSection = Array.from(sections).find(sec => sec.getBoundingClientRect().top <= 80 && sec.getBoundingClientRect().bottom > 80);
+        if (currentSection && currentSection !== targetSection) {
+          currentSection.style.transition = 'opacity 0.4s';
+          currentSection.style.opacity = 0;
+          setTimeout(() => {
+            window.location.hash = targetId;
+            currentSection.style.opacity = '';
+            sections.forEach(sec => sec.style.opacity = '');
+            targetSection.style.opacity = 0;
+            targetSection.style.transition = 'opacity 0.4s';
+            setTimeout(() => {
+              targetSection.style.opacity = 1;
+              setTimeout(() => {
+                targetSection.style.transition = '';
+                targetSection.style.opacity = '';
+              }, 400);
+            }, 10);
+          }, 400);
+        } else {
+          window.location.hash = targetId;
+        }
       }
     });
   });
