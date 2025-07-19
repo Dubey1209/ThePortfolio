@@ -5,7 +5,7 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 function setTheme(isDark) {
   document.body.classList.toggle('dark-theme', isDark);
-  icon.textContent = isDark ? '☀️' : '🌙';
+  icon.textContent = isDark ? '🌙' : '☀️'; // Show moon in dark mode (to switch to day), sun in light mode (to switch to night)
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 

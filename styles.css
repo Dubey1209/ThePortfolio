@@ -1587,18 +1587,57 @@ body.dark-theme .education-info-label {
   background: #e3f0fc !important;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button - Perfected */
 .theme-toggle-btn {
-  background: none;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 68px;
+  height: 32px;
+  background: linear-gradient(135deg, #2a7ae2 60%, #7bb6ff 100%);
+  border: 2.5px solid #2a7ae2;
+  border-radius: 32px;
+  margin: 0 0 0 1.5rem;
+  box-shadow: 0 2px 8px rgba(42,122,226,0.10);
+  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  outline: none;
   cursor: pointer;
-  font-size: 1.5rem;
-  margin-left: 1.2rem;
-  color: #2a7ae2;
-  transition: color 0.2s;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 0;
 }
 .theme-toggle-btn:focus {
   outline: 2px solid #2a7ae2;
+}
+.theme-toggle-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(.4,0,.2,1);
+}
+.theme-toggle-btn #theme-toggle-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  display: block;
+}
+/* Light mode: icon on left */
+.theme-toggle-icon-wrapper {
+  transform: translateX(0);
+}
+/* Dark mode: icon on right */
+body.dark-theme .theme-toggle-btn {
+  background: linear-gradient(135deg, #23293a 60%, #2a7ae2 100%);
+  border: 2.5px solid #7bb6ff;
+}
+body.dark-theme .theme-toggle-icon-wrapper {
+  transform: translateX(26px);
+}
+.theme-toggle-label { display: none !important; }
+.drawer-theme-toggle-li {
+  margin-left: 0.5rem;
 }
 
 /* Light (Day) Theme (default) */
@@ -3372,7 +3411,7 @@ body.dark-theme .contact-list a {
   margin-top: 2.5rem;
 }
 .skill-interactive-card {
-  background: #fff;
+  background: linear-gradient(120deg, #4f8cff 0%, #a259ff 100%);
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(42,122,226,0.10);
   min-width: 220px;
@@ -3386,6 +3425,9 @@ body.dark-theme .contact-list a {
   margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
+}
+body.dark-theme .skill-interactive-card {
+  background: linear-gradient(120deg, #23293a 0%, #4f8cff 100%);
 }
 .skill-interactive-card:hover, .skill-interactive-card.active {
   box-shadow: 0 12px 36px 0 rgba(42,122,226,0.16), 0 0 24px 6px #3b82f644, 0 2px 8px 0 rgba(0,0,0,0.10);
@@ -4047,32 +4089,42 @@ body.dark-theme .skill-static-card:hover, body.dark-theme .skill-static-card:hov
     justify-content: flex-start;
   }
   .drawer-theme-toggle-li .theme-toggle-btn {
-    width: 100%;
-    text-align: left;
-    font-size: 1.05rem;
-    font-weight: 500;
-    background: none;
-    border: none;
-    color: #2a7ae2;
-    padding: 0.5rem 0.2rem;
-    border-radius: 5px;
-    transition: background 0.18s, color 0.18s;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-  }
-  .drawer-theme-toggle-li .theme-toggle-btn:hover,
-  .drawer-theme-toggle-li .theme-toggle-btn:focus {
-    background: #e3f0fc;
-    color: #185a9d;
+    width: 68px !important;
+    height: 32px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border-radius: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    box-shadow: 0 2px 8px rgba(42,122,226,0.10) !important;
+    background: linear-gradient(135deg, #2a7ae2 60%, #7bb6ff 100%) !important;
+    border: 2.5px solid #2a7ae2 !important;
+    margin: 0 !important;
   }
   body.dark-theme .drawer-theme-toggle-li .theme-toggle-btn {
-    color: #7bb6ff;
+    background: linear-gradient(135deg, #23293a 60%, #2a7ae2 100%) !important;
+    border: 2.5px solid #7bb6ff !important;
   }
-  body.dark-theme .drawer-theme-toggle-li .theme-toggle-btn:hover,
-  body.dark-theme .drawer-theme-toggle-li .theme-toggle-btn:focus {
-    background: #2a7ae2;
-    color: #fff;
+  .drawer-theme-toggle-li .theme-toggle-icon-wrapper {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.32s cubic-bezier(.4,0,.2,1);
+  }
+  .drawer-theme-toggle-li .theme-toggle-btn #theme-toggle-icon {
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+    display: block !important;
+  }
+  .drawer-theme-toggle-li .theme-toggle-icon-wrapper {
+    transform: translateX(0) !important;
+  }
+  body.dark-theme .drawer-theme-toggle-li .theme-toggle-icon-wrapper {
+    transform: translateX(26px) !important;
   }
 }
 
@@ -4088,5 +4140,51 @@ body.dark-theme .skill-static-card:hover, body.dark-theme .skill-static-card:hov
   body.dark-theme .drawer-theme-toggle-li .theme-toggle-label {
     color: #f7fafd;
     opacity: 0.95;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    background: linear-gradient(135deg, #23293a 60%, #2a7ae2 100%) !important;
+    box-shadow: -8px 0 32px #2a7ae244, 0 2px 16px #a259ff22;
+    border-right: 2px solid #2a7ae2;
+    backdrop-filter: blur(12px) saturate(1.2);
+    animation: drawerSlideIn 0.45s cubic-bezier(.4,0,.2,1);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .nav-links li a {
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+  }
+  .nav-links li a:hover, .nav-links li a:focus {
+    background: rgba(42,122,226,0.13);
+    color: #7bb6ff !important;
+    transform: translateX(4px) scale(1.04);
+  }
+  .drawer-theme-toggle-li .theme-toggle-btn {
+    box-shadow: 0 2px 12px #2a7ae244;
+    background: linear-gradient(90deg, #2a7ae2 60%, #7bb6ff 100%) !important;
+    color: #fff !important;
+    font-weight: 600;
+    border: none;
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+  }
+  .drawer-theme-toggle-li .theme-toggle-btn:active {
+    transform: scale(0.97);
+    background: linear-gradient(90deg, #185a9d 60%, #7bb6ff 100%) !important;
+  }
+  .drawer-theme-toggle-li .theme-toggle-btn:hover, .drawer-theme-toggle-li .theme-toggle-btn:focus {
+    background: linear-gradient(90deg, #7bb6ff 60%, #2a7ae2 100%) !important;
+    color: #23293a !important;
+  }
+}
+
+@keyframes drawerSlideIn {
+  from {
+    transform: translateX(-60px) scale(0.98);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
   }
 }
