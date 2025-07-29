@@ -892,19 +892,132 @@ body.dark-theme .home-bg {
 .project-card {
   background: var(--card-bg, #fff);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-  overflow: hidden;
-  min-width: 220px;
-  max-width: 100%;
-  flex: 1 1 320px;
+  box-shadow: 0 4px 18px rgba(42,122,226,0.07);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  min-width: 280px;
+  max-width: 340px;
+  flex: 1 1 280px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s;
-  cursor: pointer;
+  gap: 1rem;
+  margin: 0 auto;
+  transition: box-shadow 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1), background 0.5s, color 0.5s;
+}
+
+/* Interactive Project Cards */
+.interactive-card {
   position: relative;
-  font-size: 0.97rem;
-  padding: 1.1rem;
-  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  height: 320px;
+}
+
+.project-front {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-image {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, rgba(42,122,226,0.1) 0%, rgba(162,89,255,0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+  color: white;
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 3;
+  border-radius: 0 0 16px 16px;
+}
+
+.project-actions-content {
+  text-align: center;
+}
+
+.project-actions h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-btn:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+}
+
+.code-btn:hover {
+  background: rgba(255,255,255,0.9);
+  color: #2a7ae2;
+}
+
+.live-btn:hover {
+  background: rgba(255,255,255,0.9);
+  color: #a259ff;
+}
+
+/* Hover Effects */
+.interactive-card:hover .project-front {
+  transform: translateY(-60px);
+}
+
+.interactive-card:hover .project-actions {
+  transform: translateY(0);
+}
+
+.interactive-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.interactive-card:hover {
+  box-shadow: 0 8px 32px rgba(42,122,226,0.15);
+  transform: translateY(-4px);
 }
 .project-card:nth-child(1):hover {
   box-shadow: 0 8px 32px rgba(34,181,115,0.18);
