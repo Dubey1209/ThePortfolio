@@ -945,7 +945,7 @@ body.dark-theme .home-bg {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+  background: linear-gradient(135deg, #2a7ae2 0%, #6c5ce7 100%);
   color: white;
   padding: 1.5rem;
   transform: translateY(100%);
@@ -959,9 +959,25 @@ body.dark-theme .home-bg {
 }
 
 .project-actions h4 {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 1.25rem 0;
+  font-size: 1.2rem;
   font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.project-actions h4:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .project-buttons {
@@ -1747,53 +1763,85 @@ body.dark-theme .education-info-label {
   background: #e3f0fc !important;
 }
 
-/* Theme Toggle Button - Perfected */
+/* Theme Toggle Button - Compact & Enhanced */
 .theme-toggle-btn {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 68px;
-  height: 32px;
+  width: 52px;
+  height: 26px;
   background: linear-gradient(135deg, #2a7ae2 60%, #7bb6ff 100%);
-  border: 2.5px solid #2a7ae2;
-  border-radius: 32px;
-  margin: 0 0 0 1.5rem;
-  box-shadow: 0 2px 8px rgba(42,122,226,0.10);
-  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+  border: 2px solid #2a7ae2;
+  border-radius: 20px;
+  margin: 0 0 0 1rem;
+  box-shadow: 0 2px 6px rgba(42,122,226,0.12), inset 0 1px 2px rgba(255,255,255,0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   outline: none;
   cursor: pointer;
   overflow: hidden;
   vertical-align: middle;
   padding: 0;
+  position: relative;
 }
+
 .theme-toggle-btn:focus {
-  outline: 2px solid #2a7ae2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(42, 122, 226, 0.3);
 }
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(42,122,226,0.15), inset 0 1px 2px rgba(255,255,255,0.1);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(42,122,226,0.15), inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
 .theme-toggle-icon-wrapper {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.32s cubic-bezier(.4,0,.2,1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: -1px;
 }
+
 .theme-toggle-btn #theme-toggle-icon {
-  font-size: 1.35rem;
+  font-size: 1rem;
   line-height: 1;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
+
 /* Light mode: icon on left */
 .theme-toggle-icon-wrapper {
   transform: translateX(0);
 }
-/* Dark mode: icon on right */
+
+/* Dark mode styles */
 body.dark-theme .theme-toggle-btn {
   background: linear-gradient(135deg, #23293a 60%, #2a7ae2 100%);
-  border: 2.5px solid #7bb6ff;
+  border-color: #7bb6ff;
 }
+
 body.dark-theme .theme-toggle-icon-wrapper {
-  transform: translateX(26px);
+  transform: translateX(22px);
+  background: #2a7ae2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+body.dark-theme #theme-toggle-icon {
+  color: #fff;
 }
 .theme-toggle-label { display: none !important; }
 .drawer-theme-toggle-li {
