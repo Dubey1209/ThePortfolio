@@ -945,13 +945,23 @@ body.dark-theme .home-bg {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #2a7ae2 0%, #6c5ce7 100%);
-  color: white;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #333;
+  padding: 1.8rem 1.5rem;
   transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 3;
   border-radius: 0 0 16px 16px;
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.dark-theme .project-actions {
+  background: rgba(30, 35, 50, 0.95);
+  color: #f0f0f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-actions-content {
@@ -989,33 +999,83 @@ body.dark-theme .home-bg {
 .project-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255,255,255,0.3);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
   color: white;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.interactive-card:hover .project-btn {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i) * 0.1s);
+}
+
+.project-btn i {
+  transition: transform 0.3s ease;
+}
+
+.project-btn:hover i {
+  transform: translateX(3px);
+}
+
+.project-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.code-btn {
+  background: linear-gradient(45deg, #2a7ae2, #5d9cec);
+  --i: 1;
+}
+
+.live-btn {
+  background: linear-gradient(45deg, #a259ff, #6c5ce7);
+  --i: 2;
 }
 
 .project-btn:hover {
-  background: rgba(255,255,255,0.2);
-  border-color: rgba(255,255,255,0.5);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.code-btn:hover {
-  background: rgba(255,255,255,0.9);
-  color: #2a7ae2;
+.project-btn:hover::before {
+  opacity: 0.9;
 }
 
-.live-btn:hover {
-  background: rgba(255,255,255,0.9);
-  color: #a259ff;
+.project-btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.project-btn.pulse:hover {
+  animation: pulse 1.5s infinite;
 }
 
 /* Hover Effects */
@@ -1025,6 +1085,13 @@ body.dark-theme .home-bg {
 
 .interactive-card:hover .project-actions {
   transform: translateY(0);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+body.dark-theme .interactive-card:hover .project-actions {
+  background: rgba(25, 30, 45, 0.98);
 }
 
 .interactive-card:hover .project-image img {
@@ -4520,4 +4587,29 @@ body.dark-theme .skill-static-card:hover, body.dark-theme .skill-static-card:hov
 .project-card:hover::after, .project-card:focus-within::after {
   opacity: 1;
   animation: projectCardGlow 3.5s linear infinite;
+  box-shadow: 0 0 30px rgba(42, 122, 226, 0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .project-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .project-btn {
+    width: 80%;
+    max-width: 200px;
+  }
 }
