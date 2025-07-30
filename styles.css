@@ -637,14 +637,57 @@ body.dark-theme .home-bg {
 }
 
 /* Skills & Expertise Section */
+/* Enhanced Skills Section with Modern Animations */
 .skills-section {
-  background: #f7fafd;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8faff 0%, #f0f7ff 100%);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Animated background elements */
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 70vh;
+  height: 140vh;
+  background: radial-gradient(circle, rgba(42, 122, 226, 0.08) 0%, rgba(138, 97, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 15s ease-in-out infinite;
+}
+
+.skills-section::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 60vh;
+  height: 120vh;
+  background: radial-gradient(circle, rgba(138, 97, 255, 0.08) 0%, rgba(138, 97, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 18s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
 .skills-title {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #181c24;
