@@ -57,7 +57,13 @@
         <div class="home-quote">"Engineering the how, envisioning the why !"
         </div>
         <div class="home-btns">
-          <a href="DeepikaDubey.pdf" class="btn btn-outline" download>Download Resume</a>
+          <div class="dropdown resume-dropdown">
+            <button class="btn btn-outline" id="resumeDropdownBtn">Download Resume <span class="dropdown-arrow">▼</span></button>
+            <div class="dropdown-content resume-dropdown-content">
+              <a href="DeepikaDubey.pdf" download class="dropdown-item">SDE Resume</a>
+              <a href="DeepikaDubey_PM.pdf" download class="dropdown-item">PM Resume</a>
+            </div>
+          </div>
           <a href="my-story.html" class="btn btn-outline">Read My Story</a>
         </div>
       </div>
