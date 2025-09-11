@@ -33,7 +33,8 @@
           <a href="#technical-projects" class="dropbtn">Projects</a>
           <div class="dropdown-content">
             <a href="#technical-projects">Technical Projects</a>
-            <a href="#pm-projects">Design Projects</a>
+            <a href="#design-projects">Design Projects</a>
+            <a href="#case-studies">Case Studies</a>
           </div>
         </li>
         <li><a href="#education">Education</a></li>
@@ -372,10 +373,10 @@
       </div>
     </div>
   </section>
-  <section id="pm-projects" class="section projects-section">
+  <section id="design-projects" class="section projects-section">
     <div class="container">
-      <h2 class="projects-title">PM Projects</h2>
-      <p class="projects-subtitle">Practical experience in product strategy, user research, and market analysis</p>
+      <h2 class="projects-title">Design Projects</h2>
+      <p class="projects-subtitle">Showcasing creative solutions, user-centered design, and visual storytelling</p>
       <div class="projects-cards-row">
         <div class="project-card" style="--card-bg:#e6e6ff;">
           
@@ -402,6 +403,43 @@
       </div>
     </div>
   </section>
+  <section id="case-studies" class="section case-studies-section">
+    <div class="container">
+      <h2 class="projects-title">Product Case Studies</h2>
+      <p class="projects-subtitle">Deep dives into real-world product challenges and solutions</p>
+      
+      <div class="projects-cards-row">
+        <div class="project-card interactive-card" style="--card-bg:#fff0f6;" data-project="nykaa-case-study">
+          <div class="project-front">
+            <div class="project-meta"><span class="project-category case-study">Nykaa Case Study | Product Thinking</span></div>
+            <h3 class="case-study-title">Enhancing Product Discovery on Nykaa</h3>
+            <div class="project-desc">
+              <ul>
+                <li>Identified key pain points in Nykaa's product discovery flow through user research</li>
+                <li>Analyzed user behavior and conversion metrics to validate the problem space</li>
+                <li>Designed a solution to improve product findability and user experience</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-actions">
+            <div class="project-actions-content">
+              <h4>View Case Study</h4>
+              <div class="project-buttons">
+                <a href="https://drive.google.com/file/d/1_w0G3za4NfrrLQVvqMBDjPHookKSd_Gf/view?usp=drivesdk" class="project-btn live-btn" target="_blank" rel="noopener">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 13V6A2 2 0 0 0 16 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H16A2 2 0 0 0 18 18V13Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 21L12 17L16 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  View Case Study PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="skills" class="section skills-section">
     <div class="container">
       <h2 class="skills-title">My Skills</h2>
@@ -783,11 +821,18 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copyright">© 2025 Portfolio. All rights reserved.</div>
+      <div class="footer-copyright"> 2025 Portfolio. All rights reserved.</div>
     </div>
     <button class="scroll-top-btn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   </footer>
-  <script src="script.js"></script>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span class="scroll-text">Scroll Down</span>
+    <div class="scroll-arrow"></div>
+  </div>
+
   <script src="theme-toggle.js"></script>
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
 </body>
-</html> 
+</html>
