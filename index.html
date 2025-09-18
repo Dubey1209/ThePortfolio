@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Product Manager Portfolio</title>
   <meta name="description" content="Deepika Dubey's portfolio: Product Management, Software Engineering, Android, UI/UX, and more. Explore projects, skills, certifications, and story.">
   <meta property="og:title" content="Deepika Dubey | Product Manager Portfolio">
@@ -21,10 +21,18 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
-      <div class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
-      <button id="menuToggleOpen" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <a href="#home" class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-icon"></span>
+        <span class="sr-only">Menu</span>
+      </button>
       <ul class="nav-links" id="navLinks">
-        <li class="drawer-close-btn-li"><button id="menuToggleClose" class="menu-toggle drawer-close-btn" aria-label="Close menu" aria-expanded="false" aria-controls="navLinks">×</button></li>
+        <li class="drawer-close-btn-li">
+          <button class="drawer-close-btn" aria-label="Close menu">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close menu</span>
+          </button>
+        </li>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -39,9 +47,15 @@
         </li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li class="drawer-theme-toggle-li"><button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn"><span class="theme-toggle-icon-wrapper"><span id="theme-toggle-icon">🌙</span></span></button></li>
+        <li class="drawer-theme-toggle-li">
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
+            <span class="theme-toggle-icon-wrapper">
+              <span id="theme-toggle-icon">🌙</span>
+            </span>
+          </button>
+        </li>
       </ul>
-      <div class="drawer-overlay" id="drawerOverlay" tabindex="-1" aria-hidden="true"></div>
+      <div class="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
     </div>
   </nav>
   <main id="main-content" role="main">
@@ -378,26 +392,69 @@
       <h2 class="projects-title">Design Projects</h2>
       <p class="projects-subtitle">Showcasing creative solutions, user-centered design, and visual storytelling</p>
       <div class="projects-cards-row">
-        <div class="project-card" style="--card-bg:#e6e6ff;">
-          
-          <div class="project-meta"><span class="project-category mobile">FemPower | Figma</span></div>
-          <div class="project-desc">
-            <ul>
-              <li>Designed and developed a solution addressing the UN SDG on gender equality, empowering women through a user-friendly platform.</li>
-              <li>Created user flows for multiple stakeholders (users, lawyers, counselors) to ensure comprehensive support and accessibility.</li>
-              <li><a href="https://www.figma.com/design/AJhxLu0O16JKwCPdPRGzDD/Fempower?node-id=0-1&t=40Q84YtE8tf4gs2n-1" target="_blank" rel="noopener" aria-label="Figma Design" style="display:inline-block;vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#F24E1E"/><path d="M12 7.5C12 6.11929 13.1193 5 14.5 5C15.8807 5 17 6.11929 17 7.5C17 8.88071 15.8807 10 14.5 10H12V7.5Z" fill="#fff"/><path d="M7 7.5C7 6.11929 8.11929 5 9.5 5C10.8807 5 12 6.11929 12 7.5V10H9.5C8.11929 10 7 8.88071 7 7.5Z" fill="#fff"/><path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="#fff"/><path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="#fff"/><circle cx="12" cy="17" r="2" fill="#fff"/></svg></a></li>
-            </ul>
+        <div class="project-card interactive-card" style="--card-bg:#e6e6ff;" data-project="fempower">
+          <div class="project-front">
+            <div class="project-meta"><span class="project-category mobile">FemPower | Figma</span></div>
+            <h3 class="project-title">FemPower - Women's Safety App</h3>
+            <div class="project-desc">
+              <ul>
+                <li>Designed and developed a solution addressing the UN SDG on gender equality, empowering women through a user-friendly platform.</li>
+                <li>Created user flows for multiple stakeholders (users, lawyers, counselors) to ensure comprehensive support and accessibility.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-actions">
+            <div class="project-actions-content">
+              <h4>View Design</h4>
+              <div class="project-buttons">
+                <a href="https://www.figma.com/design/AJhxLu0O16JKwCPdPRGzDD/Fempower?node-id=0-1&t=40Q84YtE8tf4gs2n-1" class="project-btn live-btn" target="_blank" rel="noopener">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="6" fill="#F24E1E"/>
+                    <path d="M12 7.5C12 6.11929 13.1193 5 14.5 5C15.8807 5 17 6.11929 17 7.5C17 8.88071 15.8807 10 14.5 10H12V7.5Z" fill="white"/>
+                    <path d="M7 7.5C7 6.11929 8.11929 5 9.5 5C10.8807 5 12 6.11929 12 7.5V10H9.5C8.11929 10 7 8.88071 7 7.5Z" fill="white"/>
+                    <path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="white"/>
+                    <path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="white"/>
+                    <circle cx="12" cy="17" r="2" fill="white"/>
+                  </svg>
+                  View Figma Design
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="project-card" style="--card-bg:#e0f7fa;">
-          
-          <div class="project-meta"><span class="project-category mobile">Inventory Management | Figma</span></div>
-          <div class="project-desc">
-            <ul>
-              <li>Designed an inventory management system for small businesses, focusing on usability and workflow optimization.</li>
-              <li>Created wireframes and prototypes to streamline inventory tracking, order management, and reporting.</li>
-              <li>Conducted user interviews to validate design decisions and improve product-market fit.</li>
-            </ul>
+        <div class="project-card interactive-card" style="--card-bg:#e0f7fa; --btn-bg:#ffd6e7; --btn-hover-bg:#ffb3d9;" data-project="inventory-mgmt">
+          <div class="project-front">
+            <div class="project-meta"><span class="project-category mobile">Imaster | Figma</span></div>
+            <h3 class="project-title">Imaster - Inventory Management</h3>
+            <div class="project-desc">
+              <ul>
+                <li>Designed an inventory management system for small businesses, focusing on usability and workflow optimization.</li>
+                <li>Created wireframes and prototypes to streamline inventory tracking, order management, and reporting.</li>
+                <li>Conducted user interviews to validate design decisions and improve product-market fit.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-actions">
+            <div class="project-actions-content">
+              <h4>View Design</h4>
+              <div class="project-buttons">
+                <a href="https://www.figma.com/design/nWNPpaS83adRQz00QYDXXQ/Untitled?node-id=0-1&t=ky0Gt1fMRxpreV30-1" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="6" fill="#F24E1E"/>
+                    <path d="M12 7.5C12 6.11929 13.1193 5 14.5 5C15.8807 5 17 6.11929 17 7.5C17 8.88071 15.8807 10 14.5 10H12V7.5Z" fill="white"/>
+                    <path d="M7 7.5C7 6.11929 8.11929 5 9.5 5C10.8807 5 12 6.11929 12 7.5V10H9.5C8.11929 10 7 8.88071 7 7.5Z" fill="white"/>
+                    <path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="white"/>
+                    <path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="white"/>
+                    <circle cx="12" cy="17" r="2" fill="white"/>
+                    <path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="white"/>
+                    <path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="white"/>
+                    <circle cx="12" cy="17" r="2" fill="white"/>
+                  </svg>
+                  View Figma Design
+                  <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 0.8em;"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -412,8 +469,10 @@
         <div class="project-card interactive-card" style="--card-bg:#fff0f6;" data-project="nykaa-case-study">
           <div class="project-front">
             <div class="project-meta">
-              <span class="project-category case-study">Nykaa Case Study | Product Thinking</span>
-              <span class="project-tag" style="background: #ff6b6b; color: white;">E-commerce/D2C</span>
+              <div class="project-meta-content">
+                <span class="project-category case-study">Nykaa Case Study | Product Thinking</span>
+                <span class="project-tag">E-commerce/D2C</span>
+              </div>
             </div>
             <h3 class="case-study-title">Enhancing Product Discovery on Nykaa</h3>
             <div class="project-desc">
