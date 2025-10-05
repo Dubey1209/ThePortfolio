@@ -3290,10 +3290,10 @@ body.dark-theme .certifications-subtitle {
   }
 } 
 
-/* Fun Facts Section - Elegant & Professional */
+/* ===== Fun Facts Section ===== */
 .fun-facts-section {
-  padding: 4rem 0;
-  background: #ffffff;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  padding: 6rem 0;
   position: relative;
   overflow: hidden;
 }
