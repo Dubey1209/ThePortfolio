@@ -233,15 +233,42 @@ a:hover {
 
 /* Dark theme for dropdown */
 body.dark-theme .dropdown-content {
-  background: #23293a;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+  background-color: #2d3748;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
+
 body.dark-theme .dropdown-content a {
-  color: #fff;
+  color: #e2e8f0 !important;
 }
-body.dark-theme .dropdown-content a:hover {
-  background: #2a7ae2;
-  color: #fff;
+
+body.dark-theme .dropdown-content a:hover,
+body.dark-theme .dropdown-content a:focus,
+body.dark-theme .dropdown-content a:active {
+  background-color: rgba(42, 122, 226, 0.3) !important;
+  color: #ffffff !important;
+  border-left-color: #2a7ae2 !important;
+}
+
+/* Make sure the text is always visible in dark mode */
+body.dark-theme .dropdown-content a {
+  color: #e2e8f0 !important;
+}
+
+/* Override any other styles that might be affecting the text color */
+body.dark-theme .dropdown-content a:hover,
+body.dark-theme .dropdown-content a:focus,
+body.dark-theme .dropdown-content a:active,
+body.dark-theme .dropdown-content a.active {
+  color: #ffffff !important;
+  background-color: rgba(42, 122, 226, 0.4) !important;
+}
+
+/* Ensure the dropdown items have proper spacing and alignment */
+.dropdown-content a {
+  padding: 10px 15px !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
 }
 
 .nav-links li a {
