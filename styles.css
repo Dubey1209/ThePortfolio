@@ -1038,6 +1038,42 @@ body.dark-theme .home-bg {
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
   animation-delay: calc(var(--delay, 0) * 0.15s);
+  will-change: transform, box-shadow;
+}
+
+/* Subtle sheen overlay so cards don't feel static */
+.skill-card-pm::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(600px 140px at 20% 0%, rgba(42, 122, 226, 0.18), transparent 62%),
+    radial-gradient(600px 140px at 80% 100%, rgba(162, 89, 255, 0.14), transparent 62%);
+  transform: translateY(10px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.skill-card-pm:hover::after,
+.skill-card-pm:focus-within::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Very subtle "alive" polish when Skills section is visible */
+html.js .skills-section.visible .skill-card-pm {
+  animation: fadeInUp 0.6s forwards, skillCardBreathe 7s ease-in-out 1.2s infinite;
+}
+
+@keyframes skillCardBreathe {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(42,122,226,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  }
+  50% {
+    box-shadow: 0 10px 28px rgba(42,122,226,0.10), 0 3px 10px rgba(162,89,255,0.05);
+  }
 }
 
 .skill-card-pm::before {
@@ -1180,14 +1216,67 @@ body.dark-theme .home-bg {
   border: 1px solid rgba(42, 122, 226, 0.2);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 2px 4px rgba(42, 122, 226, 0.08);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
 }
 
 .skill-tag:hover {
   background-color: rgba(42, 122, 226, 0.15);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 0 4px 8px rgba(42, 122, 226, 0.15);
   border-color: rgba(42, 122, 226, 0.3);
 }
+
+/* Cute micro-effects for skill chips (subtle) */
+.skill-tag::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 35%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translateX(-120%);
+  opacity: 0.0;
+  pointer-events: none;
+}
+
+.skill-tag:hover::after {
+  opacity: 0.7;
+  transform: translateX(120%);
+  transition: transform 1300ms ease, opacity 380ms ease;
+}
+
+/* Pop-in when Skills section scrolls into view (only when JS is active) */
+html.js .skills-section .skill-tag {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transition:
+    opacity 520ms ease,
+    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html.js .skills-section.visible .skill-tag {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Light stagger (enough to feel cute, not distracting) */
+html.js .skills-section.visible .skill-tag:nth-child(1) { transition-delay: 40ms; }
+html.js .skills-section.visible .skill-tag:nth-child(2) { transition-delay: 70ms; }
+html.js .skills-section.visible .skill-tag:nth-child(3) { transition-delay: 100ms; }
+html.js .skills-section.visible .skill-tag:nth-child(4) { transition-delay: 130ms; }
+html.js .skills-section.visible .skill-tag:nth-child(5) { transition-delay: 160ms; }
+html.js .skills-section.visible .skill-tag:nth-child(6) { transition-delay: 190ms; }
+html.js .skills-section.visible .skill-tag:nth-child(7) { transition-delay: 220ms; }
+html.js .skills-section.visible .skill-tag:nth-child(8) { transition-delay: 250ms; }
+html.js .skills-section.visible .skill-tag:nth-child(9) { transition-delay: 280ms; }
+html.js .skills-section.visible .skill-tag:nth-child(10) { transition-delay: 310ms; }
+html.js .skills-section.visible .skill-tag:nth-child(11) { transition-delay: 340ms; }
+html.js .skills-section.visible .skill-tag:nth-child(12) { transition-delay: 370ms; }
 
 .skills-grid {
   display: grid;
@@ -6591,5 +6680,88 @@ html {
   .project-btn {
     width: 80%;
     max-width: 200px;
+  }
+}
+
+/* ------------------------------------------------------------
+   Subtle animations (cute, not overdone)
+   ------------------------------------------------------------ */
+
+/* Section reveal (paired with animations.js IntersectionObserver)
+   Safe default: visible when JS is disabled */
+.section {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+html.js .section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure hero doesn't start hidden */
+.home-section {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gentle hero intro (stagger) */
+body:not(.page-loaded) .home-left > * {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.page-loaded .home-left > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.page-loaded .home-left > :nth-child(1) { transition-delay: 0ms; }
+body.page-loaded .home-left > :nth-child(2) { transition-delay: 80ms; }
+body.page-loaded .home-left > :nth-child(3) { transition-delay: 160ms; }
+body.page-loaded .home-left > :nth-child(4) { transition-delay: 240ms; }
+body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
+
+/* Soft glow on interactive cards */
+.interactive-card {
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 320ms ease,
+    filter 320ms ease;
+}
+
+.interactive-card:hover,
+.interactive-card:focus-within {
+  filter: saturate(1.03);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .section,
+  .section.visible,
+  body.page-loaded .home-left > *,
+  html.js .skills-section .skill-tag,
+  html.js .skills-section.visible .skill-tag,
+  .skill-tag::after,
+  html.js .skills-section.visible .skill-card-pm,
+  .skill-card-pm::after {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .scroll-indicator {
+    animation: none !important;
   }
 }

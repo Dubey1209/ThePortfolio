@@ -21,7 +21,9 @@ const animateOnScroll = () => {
   });
 
   // Add floating animation to specific elements
-  const floatElements = document.querySelectorAll('.home-title, .about-img, .skill-icon');
+  const floatElements = document.querySelectorAll(
+    '.home-photo, .about-image img, .skill-card-icon, .fun-fact-emoji'
+  );
   floatElements.forEach(el => {
     el.style.animation = 'float 6s ease-in-out infinite';
   });
@@ -29,6 +31,11 @@ const animateOnScroll = () => {
 
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('js');
+
+  // Trigger subtle hero intro transitions
+  document.body.classList.add('page-loaded');
+
   animateOnScroll();
   
   // Add smooth scroll to all links
